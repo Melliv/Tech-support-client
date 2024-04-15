@@ -1,5 +1,5 @@
-import Request from "./request/page";
+import Ticket from "./ticket/page";
 
 export default function Home() {
-  return <Request />;
+  return <Ticket />;
 }

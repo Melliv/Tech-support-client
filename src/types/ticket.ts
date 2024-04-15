@@ -1,4 +1,4 @@
-export class Request {
+export class Ticket {
   description: string = "";
   deadline: string | null = null;
   createdAt: string | null = null;

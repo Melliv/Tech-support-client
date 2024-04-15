@@ -33,7 +33,7 @@ const formSchema = z.object({
   deadline: z.date(),
 });
 
-export default function RequestForm() {
+export default function TicketForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,10 +42,10 @@ export default function RequestForm() {
     },
   });
 
-  async function onSubmit(requestObj: z.infer<typeof formSchema>) {
-    const res = await api.post("Request", requestObj);
+  async function onSubmit(ticketObj: z.infer<typeof formSchema>) {
+    const res = await api.post("Ticket", ticketObj);
     if (res.status === 201) {
-      toast("Request has been created");
+      toast("Ticket has been created");
       form.reset();
     }
   }
@@ -53,7 +53,7 @@ export default function RequestForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Create request</CardTitle>
+        <CardTitle>Create ticket</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
