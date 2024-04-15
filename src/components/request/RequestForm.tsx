@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +24,7 @@ import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { TimePickerDemo } from "../ui/time-picker-demo";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import api from "@/lib/axios-config";
 
 const formSchema = z.object({
   description: z.string().min(1, {
@@ -40,8 +42,12 @@ export default function RequestForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(requestObj: z.infer<typeof formSchema>) {
+    const res = await api.post("Request", requestObj);
+    if (res.status === 201) {
+      toast("Request has been created");
+      form.reset();
+    }
   }
 
   return (
