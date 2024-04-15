@@ -1,9 +1,5 @@
-import { Card } from "@/components/ui/card";
+import Request from "./request/page";
 
 export default function Home() {
-  return (
-    <div>
-      <Card>dsfsd</Card>
-    </div>
-  );
+  return <Request />;
 }
