@@ -4,8 +4,12 @@ import React from "react";
 
 export default function Request() {
   return (
-    <div className={"grid gap-4"}>
-      <RequestForm />
+    <div className={"grid gap-4 md:flex"}>
+      <div>
+        <div className={"md:sticky top-24"}>
+          <RequestForm />
+        </div>
+      </div>
       <RequestList />
     </div>
   );
