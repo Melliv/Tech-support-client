@@ -65,11 +65,7 @@ export default function TicketForm() {
                 <FormItem>
                   <FormLabel>Description</FormLabel>
                   <FormControl>
-                    <Textarea
-                      placeholder="Your app sucks!"
-                      className="resize-none"
-                      {...field}
-                    />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormDescription>
                     Describe concern, complaint, suggestion or note
